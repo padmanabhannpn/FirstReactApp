@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Button from "./Components/Button";
+import LikeButton from "./Components/LikeButton";
 
 function ExampleOne() {
     // State for counter
@@ -14,14 +16,20 @@ function ExampleOne() {
 
     // Function to add an element to the array
     const handleAddToArray = () => {
-        setUseArray(prevArray => [...prevArray, 'newItem']);
+      //  setUseArray(prevArray => [...prevArray, 'newItem']);
+alert("Button Click")
     };
 
     return (
         <div>
-            <p>This is Functional Component {count}</p>
+            <p> Multiple Component</p>
 
-            <button onClick={() => setCount(c => c + 1)}>
+            {/* <Button  children = {"Click Event"}
+            onClick={handleAddToArray} /> */}
+
+            <LikeButton />
+
+            {/* <button onClick={() => setCount(c => c + 1)}>
                 Increment Count
             </button>
 
@@ -29,7 +37,7 @@ function ExampleOne() {
                 Add to Array
             </button>
 
-            <p>Current Array: {useArray.join(', ')}</p>
+            <p>Current Array: {useArray.join(', ')}</p> */}
         </div>
     );
 }
