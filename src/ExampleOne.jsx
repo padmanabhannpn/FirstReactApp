@@ -1,24 +1,37 @@
-
-
-import React, { useState }  from "react";
+import React, { useEffect, useState } from "react";
 
 function ExampleOne() {
+    // State for counter
+    const [count, setCount] = useState(0);
 
-    // Use State
-    //Update Our component 
+    // State for array
+    const [useArray, setUseArray] = useState(['a', 'b', 'c']);
 
-    const [count,Setcount] = useState(0);
+    // Effect that runs when the length of the array changes
+    useEffect(() => {
+        console.log("useArray length changed:", useArray.length);
+    }, [useArray.length]);
+
+    // Function to add an element to the array
+    const handleAddToArray = () => {
+        setUseArray(prevArray => [...prevArray, 'newItem']);
+    };
 
     return (
         <div>
             <p>This is Functional Component {count}</p>
 
-            <button onClick={() => Setcount( c => c+1 )}>
-                Click
+            <button onClick={() => setCount(c => c + 1)}>
+                Increment Count
             </button>
-        </div>
-    )
 
+            <button onClick={handleAddToArray}>
+                Add to Array
+            </button>
+
+            <p>Current Array: {useArray.join(', ')}</p>
+        </div>
+    );
 }
 
 export default ExampleOne;
